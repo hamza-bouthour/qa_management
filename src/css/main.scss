@@ -1,0 +1,82 @@
+$ticketTextColor: rgb(0, 7, 7);
+@mixin horizontal-list-spbtw {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@mixin horizontal-list-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+
+// body {
+//     // background-color: #255ee4 !important;
+
+    
+// }
+
+// developemtn
+
+// test horizontal bootstrap
+.HorizontalSpaceAround {
+    background-color: red;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around;
+}
+.ticket-details {
+    padding: 1px 9px;
+    border-radius: 18px;
+    color: $ticketTextColor;
+
+}
+// .ticketBa {
+
+// }
+.qa-cards {
+    @include horizontal-list-spbtw();
+    margin-right: 50px;
+}
+.qaCard {
+    color: #fff;
+    background-color: #00bffff7;
+    border: 1px solid #28819ff7;
+    margin: 5px;
+    border-radius: 5%;
+    padding: 11px;
+     .qaCardHeader {
+         @include horizontal-list-spbtw();
+
+        div {
+            max-height: 17px;
+            margin-top: 7px;
+         }
+        
+    }
+    .qa-body {
+        // background-color: rgb(197, 43, 43);
+        
+    }
+    .qa-badge {
+        font-weight: 600;
+        font-size: 12px;
+        color: rgb(224, 219, 219) !important;
+    }
+    .qa-queue-list {
+        @include horizontal-list-spbtw();
+    }
+}
+
+// PGRESSION CIRCLE 
+.priority-view {
+    padding: 5px;
+    
+    .priority-progress-box {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
