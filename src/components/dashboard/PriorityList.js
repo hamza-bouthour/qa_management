@@ -7,6 +7,8 @@ import Ticket from './Ticket';
 
 const PriorityList = props => {
 
+    const [targetListDropDown, setTargetListDropDown] = useState(false);
+    const toggleTargetListDropDown = () => setTargetListDropDown(!targetListDropDown);
     return (
         <div>
             <h6>Target list <span>(6)</span></h6>
@@ -22,26 +24,36 @@ const PriorityList = props => {
                     </div>
                 </div>
             </div>  
+
+            <div className="dropdown" onClick={toggleTargetListDropDown}>
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    TargetList
+                </button>
+                <div className={targetListDropDown ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdownMenuButton">
+                    {props.list.map(ticket => {
+                        return (
+                            <Ticket 
+                                key={ticket.id}
+                                // name={ticket.name} 
+                                number={ticket.number} 
+                                status={ticket.status}  
+                                // priority={ticket.priority}
+                                // ba={ticket.ba} 
+                                // user={dumbData.users.filter((user) => {
+                                    
+                                //     return user.id == ticket.qaId
+                                //     // return user.id  === ticket.qaId
+                                // })}
+                                user={[""]}
+                            />
+                        )
+                    })}
+                </div>
+            </div>
+
             <ul className="list-group">
             {/* <ProgressBar /> */}
-            {props.list.map(ticket => {
-                return (
-                    <Ticket 
-                        key={ticket.id}
-                        // name={ticket.name} 
-                        number={ticket.number} 
-                        status={ticket.status}  
-                        // priority={ticket.priority}
-                        // ba={ticket.ba} 
-                        // user={dumbData.users.filter((user) => {
-                            
-                        //     return user.id == ticket.qaId
-                        //     // return user.id  === ticket.qaId
-                        // })}
-                        user={[""]}
-                    />
-                    )
-            })}
+            
         </ul>
     </div>
     )
